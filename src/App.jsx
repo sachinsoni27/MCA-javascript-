@@ -74,8 +74,10 @@ import { App } from './App';
   return (
     <div>
       <h1>Welcome to React JS</h1>
-     listInfo.map((value) => {
-        return <p>{value}</p>;
+      
+  listInfo.map((value,index) => {
+      return <p key={index}>{value}</p> 
+
       })}
     </div>
   );
