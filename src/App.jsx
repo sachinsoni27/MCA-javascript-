@@ -67,3 +67,24 @@ export const App = () => {
 /*
 import { App } from './App';
 */
+
+//array   m key value pair  use for map function in react js using array like this: example:            
+/*export default function App() {
+  let listInfo=[ "java", "python", "c++", "c#", "javascript"];
+  return (
+    <div>
+      <h1>Welcome to React JS</h1>
+     listInfo.map((value) => {
+        return <p>{value}</p>;
+      })}
+    </div>
+  );
+} */
+
+
+/*const items = [
+  { id: 1, name: 'Item 1' },
+  { id: 2, name: 'Item 2' },
+  { id: 3, name: 'Item 3' }
+];
+*/
