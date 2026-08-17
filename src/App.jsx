@@ -32,3 +32,38 @@ function App(){
   );
 }
 */
+
+//also use arrow function to define the component like this:
+/*
+const App = () => {
+  return (
+    <div>
+      <h1> welcome to react js</h1>
+      <p> This is a paragraph.</p>
+    </div>
+  );
+}
+*/
+
+//default export is a way to export a single value or function from a module, allowing it to be imported without using curly braces. For example, in this case, the App component is exported as the default export of the module, allowing it to be imported and used in other parts of the application like this:
+/*
+import App from './App';
+*/        
+
+
+//or components that not default export, you can use named exports like this:
+/*
+export const App = () => {
+  return (
+    <div>
+      <h1> welcome to react js</h1>
+      <p> This is a paragraph.</p>
+    </div>
+  );
+}
+*/
+
+//and import it like this:
+/*
+import { App } from './App';
+*/
