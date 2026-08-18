@@ -1,7 +1,19 @@
-function App(){
-  return <h1> welcome to react js</h1>
+function App() {
+  const students = [
+    { id: 1, name: 'sachin' },
+    { id: 2, name: 'tanya' },
+    { id: 3, name: 'shivang' }
+  ];
 
+  return (
+    <div>
+      {students.map((student) => (
+        <h1 key={student.id}>{student.name}</h1>
+      ))}
+    </div>
+  );
 }
+
 export default App;
 
 // this is a component in react js    
@@ -90,3 +102,4 @@ import { App } from './App';
   { id: 3, name: 'Item 3' }
 ];
 */
+
