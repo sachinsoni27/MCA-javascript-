@@ -6,7 +6,7 @@ import React from 'react'
 const Header = () => {
   return (
     <header>
-      <h1>Student Information</h1>
+      <h1 style={{ color: 'yellow' }}>Student Information</h1>
     </header>
   )
 }

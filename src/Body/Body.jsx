@@ -9,8 +9,8 @@ const Body = () => {
 
   return (
     <main>
-      <p>Welcome to the app. Everything is working correctly.</p>
-      <table>
+      <p style ={{ color: 'blue' ,fontSize: '16px' }}>Welcome to the app. Everything is working correctly.</p>
+      <table className = "student-table">
         <thead>
           <tr>
             <th>ID</th>
