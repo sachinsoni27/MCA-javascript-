@@ -10,6 +10,7 @@ const Counter = () => {
   const decrement = () => {
     setCount((prevCount) => prevCount - 1)
   }
+  
 
   return (
     <div className="mt-3 p-4 border rounded shadow">
@@ -24,3 +25,4 @@ const Counter = () => {
 }
 
 export default Counter
+      
