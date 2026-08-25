@@ -9,17 +9,17 @@ const Body = () => {
 
   return (
     <main>
-      <p style ={{ color: 'blue' ,fontSize: '16px' }}>Welcome to the app. Everything is working correctly.</p>
-      <table className = "student-table">
-        <thead>
-          <tr>
+      <p  className="bg-warning text-primary text-center">Welcome to the app. Everything is working correctly.</p>
+      <table className = "table">
+        <thead class="table-dark">
+          <tr class="table-light">
             <th>ID</th>
             <th>Name</th>
             <th>Marks</th>
             <th>Class</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody  class="table-warning">
           {studentInfo.map((student) => (
             <Student
               key={student.id}

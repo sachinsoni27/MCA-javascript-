@@ -1,15 +1,12 @@
 import React from 'react'
-import Header from './Header/Header'
-import Body from './Body/Body'
-import Footer from './Footer/Footer'
+import Counter from './components/counter.jsx'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
 const App = () => {
   return (
-    <div>
-      <Header />
-      <Body />
-      <Footer />
+    <div className="container py-4">
+      <Counter />
     </div>
   )
 }

@@ -1,72 +1,26 @@
-import React from 'react'
-import header
-const counter = () => {
-  const [count, setCount] = React.useState(0);
+import React, { useState } from 'react'
+
+const Counter = () => {
+  const [count, setCount] = useState(1)
 
   const increment = () => {
-    setCount(count + 1);
-  };
+    setCount((prevCount) => prevCount + 1)
+  }
 
   const decrement = () => {
-    setCount(count - 1);
-  };
+    setCount((prevCount) => prevCount - 1)
+  }
 
   return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
+    <div className="mt-3 p-4 border rounded shadow">
+      <h2 className="text-center mb-3">Counter</h2>
+      <p className="bg- warning rounded pt-1 pb-2 px-3 mx-2 ">Count: {count}</p>
+      <div className="d-flex justify-content-center gap-2">
+        <button className="btn btn-primary" onClick={increment}>Increment</button>
+        <button className="btn btn-danger" onClick={decrement}>Decrement</button>
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default counter;
-
-/*import React from 'react'
-
-const counter = () => {
-  const [count, setCount] = React.useState(0);
-
-  const increment = () => {
-    setCount(count + 1);
-  };
-
-  const decrement = () => {
-    setCount(count - 1);
-  };
-
-  return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
-    </div>
-  );
-};
-
-// export default counter*/
-
-
-
-/*import { useState } from "react";
-
-const App = () => {
-    const [number, setnumber] = useState([1, 2, 3, 4, 5]);
-
-    const addTwo = () => {
-        <h2>list of numbers</h2>
-        setnumber(number.map(num => num + 2));
-    };
-
-    return (
-        <div>
-            <h2>{number}</h2>
-
-            <button onClick={addTwo}>
-                Add 2
-            </button>
-        </div>
-    );
-};
-
-export default App;*/
+export default Counter
