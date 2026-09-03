@@ -1,25 +1,24 @@
-import React from 'react'
 import Student from './Student'
 
 const Body = () => {
-  const [studentInfo, setStudentInfo] = React.useState([
+  const studentInfo = [
     { id: 1, name: 'Shivang', marks: 90, className: 'MCA-D' },
     { id: 2, name: 'Sachin', marks: 100, className: 'MCA-D' },
-  ])
+  ]
 
   return (
     <main>
-      <p  className="bg-warning text-primary text-center">Welcome to the app. Everything is working correctly.</p>
-      <table className = "table">
-        <thead class="table-dark">
-          <tr class="table-light">
+      <p className="bg-warning text-primary text-center py-2">Welcome to the app. Everything is working correctly.</p>
+      <table className="table table-striped table-bordered">
+        <thead className="table-dark">
+          <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Marks</th>
             <th>Class</th>
           </tr>
         </thead>
-        <tbody  class="table-warning">
+        <tbody className="table-warning">
           {studentInfo.map((student) => (
             <Student
               key={student.id}
