@@ -1,33 +1,20 @@
-import Counter from './components/counter.jsx'
-import ListDisplay from './components/ListDisplay.jsx'
-import RegistrationForm from './regestrationform.jsx'
-import Product from './product.jsx'
-import { Link, Route, Routes } from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import CurrentTime from './components/CurrentTime.jsx'
+import Dashboard from './components/Dashboard.jsx'
+import LoginForm from './components/LoginForm.jsx'
+import { useUsername } from './authStore.js'
 import './App.css'
 
-const App = () => {
-  return (
-    <div className="container py-4 app-shell">
-      <header className="app-header d-flex flex-wrap align-items-center justify-content-between gap-3">
-        <Link className="app-brand" to="/">FirstApp</Link>
-        <Link className="btn btn-dark" to="/product/101">View sample product</Link>
-      </header>
+function App() {
+  const username = useUsername()
 
-      <Routes>
-        <Route
-          path="/"
-          element={(
-            <main className="app-content">
-              <Counter />
-              <ListDisplay />
-              <RegistrationForm />
-            </main>
-          )}
-        />
-        <Route path="/product/:id" element={<Product />} />
-        <Route path="*" element={<Product />} />
-      </Routes>
+  return (
+    <div>
+      <CurrentTime />
+      {username ? (
+        <Dashboard />
+      ) : (
+        <LoginForm />
+      )}
     </div>
   )
 }
