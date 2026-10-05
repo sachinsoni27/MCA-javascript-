@@ -1,6 +1,7 @@
 
 
 import { useEffect, useState } from "react";
+import axios from "axios";
 import "./Home.css";
 
 const API_URL = "http://localhost:3000";
@@ -36,12 +37,8 @@ function CollectionManager({ collection }) {
   const [notice, setNotice] = useState("");
 
   useEffect(() => {
-    fetch(`${API_URL}/${collection.endpoint}`)
-      .then((response) => {
-        if (!response.ok) throw new Error("Could not load records.");
-        return response.json();
-      })
-      .then(setRecords)
+    axios.get(`${API_URL}/${collection.endpoint}`)
+      .then((response) => setRecords(response.data))
       .catch(() => setError("Could not connect to JSON Server. Start it on port 3000."))
       .finally(() => setLoading(false));
   }, [collection.endpoint]);
@@ -65,16 +62,14 @@ function CollectionManager({ collection }) {
 
     try {
       const isEditing = editingId !== null;
-      const response = await fetch(
-        isEditing ? `${API_URL}/${collection.endpoint}/${editingId}` : `${API_URL}/${collection.endpoint}`,
-        {
-          method: isEditing ? "PATCH" : "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(record),
-        },
-      );
-      if (!response.ok) throw new Error("Could not save this record.");
-      const savedRecord = await response.json();
+      const response = await axios({
+        url: isEditing
+          ? `${API_URL}/${collection.endpoint}/${editingId}`
+          : `${API_URL}/${collection.endpoint}`,
+        method: isEditing ? "PATCH" : "POST",
+        data: record,
+      });
+      const savedRecord = response.data;
       setRecords((current) => isEditing
         ? current.map((item) => item.id === editingId ? savedRecord : item)
         : [...current, savedRecord]);
@@ -99,8 +94,7 @@ function CollectionManager({ collection }) {
     setNotice("");
     setDeletingId(record.id);
     try {
-      const response = await fetch(`${API_URL}/${collection.endpoint}/${record.id}`, { method: "DELETE" });
-      if (!response.ok) throw new Error("Could not delete this record.");
+      await axios.delete(`${API_URL}/${collection.endpoint}/${record.id}`);
       setRecords((current) => current.filter((item) => item.id !== record.id));
       if (editingId === record.id) resetForm();
       setNotice("Record deleted.");
